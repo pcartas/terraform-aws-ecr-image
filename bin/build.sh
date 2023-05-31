@@ -22,7 +22,7 @@ build_args=$(echo "$build_args_json" | jq -r 'to_entries|map("--build-arg \(.key
 echo "Building $aws_ecr_repository_url_with_tag from $build_folder/Dockerfile with args $build_args"
 
 # Build image
-docker build $build_args -t $aws_ecr_repository_url_with_tag $build_folder
+sudo docker build $build_args -t $aws_ecr_repository_url_with_tag $build_folder
 
 # Push image
-docker push $aws_ecr_repository_url_with_tag
+sudo docker push $aws_ecr_repository_url_with_tag
