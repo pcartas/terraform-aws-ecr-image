@@ -1,5 +1,5 @@
 variable "dockerfile_dir" {
-  type = string
+  type        = string
   description = "The directory that contains the Dockerfile"
 }
 
@@ -18,4 +18,27 @@ variable "docker_build_args" {
   description = "Optional build arguments for Docker"
   type        = map(string)
   default     = {}
+}
+
+variable "docker_user" {
+  type        = string
+  description = "Username for docker login"
+  sensitive   = true
+}
+
+variable "docker_password" {
+  type        = string
+  description = "Password for docker login"
+  sensitive   = true
+}
+
+variable "region" {
+  type        = string
+  description = "AWS region"
+}
+
+variable "account_id" {
+  type        = string
+  description = "AWS account id"
+  sensitive   = true
 }
